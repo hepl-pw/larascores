@@ -21,9 +21,7 @@
                            value="{{ old('slug')??$team->slug }}">
                 </div>
                 <div class="form-group">
-                    @if(count($team->media))
-                        <div class="logo-container"><img src="{{$team->media->last()->getUrl()}}" alt="">
-                        </div>@endif
+                    @include('partials.team.team-logo-45')
                     <label for="logo">Logo de l’équipe (un SVG) - ne rien sélectionner si il est déjà bon</label>
                     <input class="form-control-file" type="file" name="logo" id="logo">
                 </div>

@@ -7,9 +7,7 @@
                 <ul>
                     @foreach($teams as $team)
                         <li class="teams-logos">
-                            @if(count($team->media))
-                                <div class="logo-container"><img src="{{$team->media->last()->getUrl()}}" alt="">
-                                </div>@endif
+                            @include('partials.team.team-logo-45')
                             <a href="{{route('change_team',['team'=>$team->slug])}}">{{$team->name}}</a> -
                             <small>{{$team->slug}}</small></li>
                     @endforeach
