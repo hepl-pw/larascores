@@ -19,6 +19,21 @@ class Match extends Model
         return $this->belongsToMany(Participation::class);
     }
 
+    public function tournaments()
+    {
+        return $this->belongsToMany(Tournament::class, Participation::class);
+    }
+
+    public function getTournamentAttribute()
+    {
+        return $this->tournaments()->first();
+    }
+
+    public function getCompetitionAttribute()
+    {
+        return $this->tournament->competition;
+    }
+
     public function teams()
     {
         return $this

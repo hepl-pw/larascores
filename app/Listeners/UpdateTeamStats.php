@@ -29,7 +29,15 @@ class UpdateTeamStats
     {
         $match = $event->match;
         foreach ($match->teams as $idx => $team) {
-            $statsForTeam = TeamStat::where('team_id', $team->id)->first();
+            $statsForTeam = TeamStat::where('team_id', $team->id)
+                ->where('tournament_id', $match->tournament->id)
+                ->first();
+            if (!$statsForTeam) {
+                $statsForTeam = TeamStat::where('team_id', $team->id)
+                    ->whereNull('tournament_id')
+                    ->first();
+                $statsForTeam->tournament_id = $match->tournament->id;
+            }
             $statsForTeam->games++;
             if ($team->isHomeInMatch($match)) {
                 $statsForTeam->goals_for += $match->home_team_goals;
