@@ -21,8 +21,10 @@
                            value="{{ old('slug')??$team->slug }}">
                 </div>
                 <div class="form-group">
-                    @if($team->file_name)<img src="{{asset($team->file_name)}}" alt="">@endif
-                    <label for="logo">Logo de l’équipe (un png) - ne rien sélectionner si il est déjà bon</label>
+                    @if(count($team->media))
+                        <div class="logo-container"><img src="{{$team->media->last()->getUrl()}}" alt="">
+                        </div>@endif
+                    <label for="logo">Logo de l’équipe (un SVG) - ne rien sélectionner si il est déjà bon</label>
                     <input class="form-control-file" type="file" name="logo" id="logo">
                 </div>
 
