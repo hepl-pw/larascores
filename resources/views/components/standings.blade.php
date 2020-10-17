@@ -50,19 +50,18 @@
         </thead>
         <tbody>
         @foreach($teamsStats as $stat)
-            @php $team = $stat->team @endphp
             <tr>
                 <th scope="row">
                     @if(Auth::check())
                         @can('create','\App\Models\Team')
-                            @include('partials.team.team-logo-45')
+                            <x-team-logo :team="$stat->team"></x-team-logo>
                             <a href="{{route('change_team',['team'=>$stat->team->slug])}}">
                                 {{ $stat->team->media->last() }}
                                 {{ $stat->team->name }}
                             </a>
                         @endcan
                     @else
-                        @include('partials.team.team-logo-45')
+                        <x-team-logo :team="$stat->team"></x-team-logo>
                         {{ $stat->team->name }}
                     @endif
                 </th>

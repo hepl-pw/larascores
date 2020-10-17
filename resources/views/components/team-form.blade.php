@@ -7,7 +7,7 @@
                 <ul>
                     @foreach($teams as $team)
                         <li class="teams-logos">
-                            @include('partials.team.team-logo-45')
+                            <x-team-logo :team="$team"></x-team-logo>
                             <a href="{{route('change_team',['team'=>$team->slug])}}">{{$team->name}}</a> -
                             <small>{{$team->slug}}</small></li>
                     @endforeach

@@ -21,7 +21,7 @@
                            value="{{ old('slug')??$team->slug }}">
                 </div>
                 <div class="form-group">
-                    @include('partials.team.team-logo-45')
+                    <x-team-logo :team="$team"></x-team-logo>
                     <label for="logo">Logo de l’équipe (un SVG) - ne rien sélectionner si il est déjà bon</label>
                     <input class="form-control-file" type="file" name="logo" id="logo">
                 </div>
