@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Tournament;
 use Illuminate\View\Component;
 
 class Standings extends Component
@@ -11,9 +12,9 @@ class Standings extends Component
     public $sortMatchesKey;
     public $span_years;
     public $competitions;
-    public $tournament_id;
     public $competition_id;
     public $season;
+    public $tournament;
 
     /**
      * Create a new component instance.
@@ -36,6 +37,9 @@ class Standings extends Component
         $this->competitions = $competitions;
         $this->competition_id = $competitionId;
         $this->season = $season;
+        $this->tournament = Tournament::where('competition_id', $competitionId)
+            ->where('span_years', $season)
+            ->first();
     }
 
     /**

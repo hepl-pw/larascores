@@ -1,5 +1,6 @@
 <section class="mb-5">
-    <h2 class="mb-4">Le classement <small>{{ today()->locale('fr')->isoFormat('dddd D MMMM YYYY') }}</small></h2>
+    <h2 class="mb-4"><img src="{{ $tournament->media->last()->getUrl() }}" height="100"> Le classement
+        <small>{{ today()->locale('fr')->isoFormat('dddd D MMMM YYYY') }}</small></h2>
     <div class="mb-5">
         <form class="row" action="/" method="get">
             <div class="col">
