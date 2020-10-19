@@ -20,7 +20,6 @@ class TeamSeeder extends Seeder
             'slug' => 'LIV',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/5/54/Logo_FC_Liverpool.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -28,7 +27,6 @@ class TeamSeeder extends Seeder
             'slug' => 'CHE',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/5/51/Logo_Chelsea.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -36,7 +34,6 @@ class TeamSeeder extends Seeder
             'slug' => 'ARS',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/5/53/Arsenal_FC.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -44,7 +41,6 @@ class TeamSeeder extends Seeder
             'slug' => 'MCI',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/b/ba/Logo_Manchester_City_2016.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -52,7 +48,6 @@ class TeamSeeder extends Seeder
             'slug' => 'MUN',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/b/b9/Logo_Manchester_United.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -60,7 +55,6 @@ class TeamSeeder extends Seeder
             'slug' => 'TOT',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/5/5c/Logo_Tottenham_Hotspur.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         // 4 Serie A teams
@@ -70,7 +64,6 @@ class TeamSeeder extends Seeder
         ]);
 
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/commons/b/bc/Juventus_FC_2017_icon_%28black%29.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
         $t = Team::create([
             'name' => 'Inter Milan',
@@ -78,14 +71,12 @@ class TeamSeeder extends Seeder
         ]);
 
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/commons/8/89/FC_Internazionale_Milano_2014.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
         $t = Team::create([
             'name' => 'Napoli',
             'slug' => 'NAP',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/commons/2/2d/SSC_Neapel.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -93,7 +84,6 @@ class TeamSeeder extends Seeder
             'slug' => 'LAZ',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/4/4f/Logo_Lazio.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         // 4 La Liga teams
@@ -102,7 +92,6 @@ class TeamSeeder extends Seeder
             'slug' => 'RMA',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/c/c7/Logo_Real_Madrid.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -110,7 +99,6 @@ class TeamSeeder extends Seeder
             'slug' => 'BAR',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/a/a1/Logo_FC_Barcelona.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -118,7 +106,6 @@ class TeamSeeder extends Seeder
             'slug' => 'SEV',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/f/f1/Logo_Sevilla_FC.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
         $t = Team::create([
@@ -126,7 +113,6 @@ class TeamSeeder extends Seeder
             'slug' => 'ATL',
         ]);
         $t->addMediaFromUrl('https://upload.wikimedia.org/wikipedia/fr/9/93/Logo_Atl%C3%A9tico_Madrid_2017.svg')
-            ->preservingOriginal()
             ->toMediaCollection();
 
     }
