@@ -56,7 +56,6 @@
                         @can('create','\App\Models\Team')
                             <x-team-logo :team="$stat->team"></x-team-logo>
                             <a href="{{route('change_team',['team'=>$stat->team->slug])}}">
-                                {{ $stat->team->media->last() }}
                                 {{ $stat->team->name }}
                             </a>
                         @endcan
