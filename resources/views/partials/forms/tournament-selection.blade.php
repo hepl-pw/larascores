@@ -1,22 +1,7 @@
 <form class="row" action="{{route('dashboard')}}" method="get">
-    <div class="col">
-        <label for="competition">Competition</label>
-        <select class="form-control" name="competition" id="competition">
-            @foreach($competitions as $competition)
-                <option value="{{$competition->id}}"
-                        @if($competition->id == $competition_id) selected @endif>{{$competition->name}}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="col">
-        <label for="season">Season</label>
-        <select class="form-control" name="season" id="season">
-            @foreach($span_years as $span_year)
-                <option value="{{$span_year->span_years}}"
-                        @if($span_year->span_years == $season) selected @endif>{{$span_year->span_years}}</option>
-            @endforeach
-        </select>
-    </div>
+    @livewire('select-available-competitions-for-season', ['competitions'=>$competitions,
+    'competition_id'=>$competition_id])
+    @livewire('select-available-seasons-for-competition', ['span_years'=>$span_years, 'season'=>$season])
     <div class="col">
         <label>Submit it</label>
         <button class="form-control">Change</button>
