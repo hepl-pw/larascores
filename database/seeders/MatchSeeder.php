@@ -18,16 +18,20 @@ class MatchSeeder extends Seeder
     public function run()
     {
         $allTeams = [
-            'EPL' => Team::whereIn('name',
+            'EPL*2020-2021' => Team::whereIn('name',
                 ['Arsenal', 'Chelsea FC', 'Tottenham', 'Manchester United', 'Manchester City', 'Liverpool'])->get(),
-            'FAC' => Team::whereIn('name',
+            'EPL*2000-2001' => Team::whereIn('name',
+                ['Arsenal', 'Chelsea FC', 'Tottenham', 'Manchester United', 'Manchester City', 'Liverpool'])->get(),
+            'FAC*2020-2021' => Team::whereIn('name',
                 ['Arsenal', 'Chelsea FC', 'Tottenham', 'Manchester United'])->get(),
-            'ISA' => Team::whereIn('name', ['Juventus', 'Napoli', 'Lazio Roma', 'Inter Milan'])->get(),
-            'SLL' => Team::whereIn('name', ['Real Madrid', 'Barcelona FC', 'Sevilla', 'Atletico Madrid'])->get()
+            'ISA*2020-2021' => Team::whereIn('name', ['Juventus', 'Napoli', 'Lazio Roma', 'Inter Milan'])->get(),
+            'SLL*2020-2021' => Team::whereIn('name',
+                ['Real Madrid', 'Barcelona FC', 'Sevilla', 'Atletico Madrid'])->get()
         ];
 
-        foreach ($allTeams as $competitionSlug => $teams) {
-
+        foreach ($allTeams as $tournament => $teams) {
+            $competitionSlug = explode('*', $tournament)[0];
+            $span_years = explode('*', $tournament)[1];
             $w = now()->subMonths(random_int(2, 10));
             foreach ($teams as $team1) {
                 foreach ($teams as $team2) {
@@ -42,7 +46,7 @@ class MatchSeeder extends Seeder
                             'match_id' => $m->id,
                             'team_id' => $team1->id,
                             'tournament_id' => Competition::whereSlug($competitionSlug)->first()->tournaments->where('span_years',
-                                '2020-2021')->first()->id,
+                                $span_years)->first()->id,
                             'goals' => random_int(0, 4),
                             'is_home' => true
                         ]);
