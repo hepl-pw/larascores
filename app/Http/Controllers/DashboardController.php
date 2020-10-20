@@ -43,7 +43,13 @@ class DashboardController extends Controller
             ->orderByDesc($secondaryKey)
             ->get();
 
-        $span_years = Tournament::orderBy('span_years')->get()->unique('span_years');
+        if (request()->has('competition')) {
+            $span_years = $tournament->competition->span_years;
+        } else {
+            $span_years = Tournament::orderBy('span_years')->get()->unique('span_years')->pluck('span_years');
+        }
+
+
         $competitions = Competition::orderBy('name')->get();
 
         return view('dashboard',
