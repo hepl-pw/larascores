@@ -17,7 +17,6 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('name')->unique();
-            $table->string('file_name')->nullable();
             $table->timestamps();
         });
     }

@@ -17,7 +17,6 @@ class CreateTournamentsTable extends Migration
             $table->id();
             $table->foreignId('competition_id')->constrained();
             $table->string('span_years', 9);
-            $table->string('file_name')->nullable();
             $table->timestamps();
         });
     }
