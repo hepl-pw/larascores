@@ -32,4 +32,4 @@ The models listed in the application are :
 --------------------
 ## Livewire Addition
 
-- step 1 : allow realtime filtering of seasons select element according to the competition selected.
+- step 1 : allow realtime filtering of the seasons select element according to the competition selected.
