@@ -7,7 +7,6 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TotoController;
 use App\Models\Match;
 use App\Models\Team;
-use App\Models\Tournament;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +24,8 @@ Route::get('/s', function () {
     return Team::first();
 });
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])
+    ->name('dashboard');
 
 Route::get('/match/create', [MatchController::class, 'create'])
     ->name('new_match')
