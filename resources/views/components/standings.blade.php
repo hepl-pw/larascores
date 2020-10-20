@@ -8,7 +8,7 @@
                 <select class="form-control" name="competition" id="competition">
                     @foreach($competitions as $competition)
                         <option value="{{$competition->id}}"
-                                @if($competition->id === $competition_id) selected @endif>{{$competition->name}}</option>
+                                @if($competition->id == $competition_id) selected @endif>{{$competition->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -17,7 +17,7 @@
                 <select class="form-control" name="season" id="season">
                     @foreach($span_years as $span_year)
                         <option value="{{$span_year->span_years}}"
-                                @if($span_year->span_years === $season) selected @endif>{{$span_year->span_years}}</option>
+                                @if($span_year->span_years == $season) selected @endif>{{$span_year->span_years}}</option>
                     @endforeach
                 </select>
             </div>
@@ -31,22 +31,25 @@
         <thead>
         <tr>
             <th scope="col">Team</th>
-            <th scope="col"><a href="/?s=games&m={{ $sortMatchesKey??'played_at' }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>'games','m'=>$sortMatchesKey??'played_at'])}}"
                                @if($sortStatsKey === 'games') class="border-bottom" @endif>Games</a></th>
-            <th scope="col"><a href="/?s=points&m={{ $sortMatchesKey??'played_at' }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>'points','m'=>$sortMatchesKey??'played_at'])}}"
                                @if($sortStatsKey === 'points') class="border-bottom" @endif>Points</a></th>
-            <th scope="col"><a href="/?s=wins&m={{ $sortMatchesKey??'played_at' }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>'wins','m'=>$sortMatchesKey??'played_at'])}}"
                                @if($sortStatsKey === 'wins') class="border-bottom" @endif>Wins</a></th>
-            <th scope="col"><a href="/?s=losses&m={{ $sortMatchesKey??'played_at' }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>'losses','m'=>$sortMatchesKey??'played_at'])}}"
                                @if($sortStatsKey === 'losses') class="border-bottom" @endif>Losses</a></th>
-            <th scope="col"><a href="/?s=draws&m={{ $sortMatchesKey??'played_at' }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>'draws','m'=>$sortMatchesKey??'played_at'])}}"
                                @if($sortStatsKey === 'draws') class="border-bottom" @endif>Draws</a></th>
-            <th scope="col"><a href="/?s=goals_for&m={{ $sortMatchesKey??'played_at' }}"
-                               @if($sortStatsKey === 'goals_for') class="border-bottom" @endif>GF</a></th>
-            <th scope="col"><a href="/?s=goals_against&m={{ $sortMatchesKey??'played_at' }}"
-                               @if($sortStatsKey === 'goals_against') class="border-bottom" @endif>GA</a></th>
-            <th scope="col"><a href="/?s=goals_difference&m={{ $sortMatchesKey??'played_at' }}"
-                               @if($sortStatsKey === 'goals_difference') class="border-bottom" @endif>GD</a></th>
+            <th scope="col"><a
+                        href="{{request()->fullUrlWithQuery(['s'=>'goals_for','m'=>$sortMatchesKey??'played_at'])}}"
+                        @if($sortStatsKey === 'goals_for') class="border-bottom" @endif>GF</a></th>
+            <th scope="col"><a
+                        href="{{request()->fullUrlWithQuery(['s'=>'goals_against','m'=>$sortMatchesKey??'played_at'])}}"
+                        @if($sortStatsKey === 'goals_against') class="border-bottom" @endif>GA</a></th>
+            <th scope="col"><a
+                        href="{{request()->fullUrlWithQuery(['s'=>'goals_difference','m'=>$sortMatchesKey??'played_at'])}}"
+                        @if($sortStatsKey === 'goals_difference') class="border-bottom" @endif>GD</a></th>
         </tr>
         </thead>
         <tbody>
