@@ -2,7 +2,7 @@
     <h2 class="mb-4"><img src="{{ $tournament->media->last()->getUrl() }}" height="100"> Le classement
         <small>{{ today()->locale('fr')->isoFormat('dddd D MMMM YYYY') }}</small></h2>
     <div class="mb-5">
-        <form class="row" action="/" method="get">
+        <form class="row" action="{{route('dashboard')}}" method="get">
             <div class="col">
                 <label for="competition">Competition</label>
                 <select class="form-control" name="competition" id="competition">
@@ -25,6 +25,12 @@
                 <label>Submit it</label>
                 <button class="form-control">Change</button>
             </div>
+            @if(request()->query('s'))
+                <input type="hidden" name="s" value="{{request()->query('s')}}">
+            @endif
+            @if(request()->query('m'))
+                <input type="hidden" name="m" value="{{request()->query('m')}}">
+            @endif
         </form>
     </div>
     <table class="table">
