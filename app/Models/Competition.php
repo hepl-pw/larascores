@@ -20,4 +20,9 @@ class Competition extends Model
     {
         return $this->hasManyThrough(Participation::class, Tournament::class);
     }
+
+    public function getSpanYearsAttribute()
+    {
+        return $this->tournaments->unique('span_years')->pluck('span_years');
+    }
 }
