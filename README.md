@@ -28,3 +28,8 @@ The models listed in the application are :
     - span_years (fi : 2020-2021)
 - Media : at this point, the app uses Spatie’s media-library. It allows the linking of media files to models and provides an expressive API to handle the files, including image conversions. So the files are referenced in this Media model and linked to other models through polymorphic relationships.
 - Stat : This model is used like a materialized view. The goal is to reduce the charge on the server, avoiding the calculation of stats each time a visitor wants to see it. The stats are updated each time a match is added or changed and each time a team is added or changed.
+
+--------------------
+## Livewire Addition
+
+- step 1 : allow realtime filtering of seasons select element according to the competition selected.
