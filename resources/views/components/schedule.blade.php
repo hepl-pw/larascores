@@ -3,18 +3,18 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col"><a href="/?m=played_at&s={{ $sortStatsKey }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>$sortStatsKey,'m'=>'played_at'])}}"
                                @if($sortMatchesKey === 'played_at') class="border-bottom" @endif>Date</a></th>
-            <th scope="col"><a href="/?m=home_team_name&s={{ $sortStatsKey }}"
-                               @if($sortMatchesKey === 'home_team_name') class="border-bottom" @endif>Équipe visitée</a>
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>$sortStatsKey,'m'=>'home_team_name'])}}
+                @if($sortMatchesKey === 'home_team_name') class=" border-bottom" @endif>Équipe visitée</a>
             </th>
-            <th scope="col"><a href="/?m=home_team_goals&s={{ $sortStatsKey }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>$sortStatsKey,'m'=>'home_team_goals'])}}"
                                @if($sortMatchesKey === 'home_team_goals') class="border-bottom" @endif>Goals <small>de
                         l’équipe visitée</small></a></th>
-            <th scope="col"><a href="/?m=away_team_goals&s={{ $sortStatsKey }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>$sortStatsKey,'m'=>'away_team_goals'])}}"
                                @if($sortMatchesKey === 'away_team_goals') class="border-bottom" @endif>Goals <small>de
                         l’équipe visiteuse</small></a></th>
-            <th scope="col"><a href="/?m=away_team_name&s={{ $sortStatsKey }}"
+            <th scope="col"><a href="{{request()->fullUrlWithQuery(['s'=>$sortStatsKey,'m'=>'away_team_name'])}}"
                                @if($sortMatchesKey === 'away_team_name') class="border-bottom" @endif>Équipe
                     visiteuse</a></th>
         </tr>
