@@ -7,11 +7,17 @@ use Livewire\Component;
 class SelectAvailableCompetitionsForSeason extends Component
 {
     public $competitions;
-    public $competition_id;
+    public $competition;
+    public $competitionId;
 
-    public function updateSeasonsSelect()
+    protected $rules = [
+        'competition' => 'required',
+    ];
+
+    public function updatedCompetitionId()
     {
-        $this->emit('competitionsSelectChanged', $this->competition_id);
+        //dd($this->competition);
+        $this->emit('competitionsSelectChanged', $this->competition);
     }
 
     public function render()

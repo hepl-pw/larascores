@@ -12,7 +12,7 @@ class Standings extends Component
     public $sortMatchesKey;
     public $span_years;
     public $competitions;
-    public $competition_id;
+    public $competition;
     public $season;
     public $tournament;
 
@@ -27,7 +27,7 @@ class Standings extends Component
         $sortMatchesKey,
         $spanYears,
         $competitions,
-        $competitionId,
+        $competition,
         $season
     ) {
         $this->teamsStats = $teamsStats;
@@ -35,9 +35,9 @@ class Standings extends Component
         $this->sortMatchesKey = $sortMatchesKey;
         $this->span_years = $spanYears;
         $this->competitions = $competitions;
-        $this->competition_id = $competitionId;
+        $this->competition = $competition;
         $this->season = $season;
-        $this->tournament = Tournament::where('competition_id', $competitionId)
+        $this->tournament = Tournament::where('competition_id', $competition->id)
             ->where('span_years', $season)
             ->first();
     }

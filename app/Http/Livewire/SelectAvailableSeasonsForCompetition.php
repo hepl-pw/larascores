@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Competition;
-use App\Models\Tournament;
 use Livewire\Component;
 
 class SelectAvailableSeasonsForCompetition extends Component
@@ -11,11 +10,19 @@ class SelectAvailableSeasonsForCompetition extends Component
     public $span_years;
     public $season;
 
-    public $listeners = ['competitionsSelectChanged' => 'updateSeasons'];
+    protected $listeners = [
+        'competitionsSelectChanged' => 'updateSeasons'
+    ];
 
     public function updateSeasons(Competition $competition)
     {
         $this->span_years = $competition->span_years;
+        $this->emit('seasonsChanged', $this->season);
+    }
+
+    public function updatedSeason()
+    {
+        $this->emit('seasonsChanged', $this->season);
     }
 
     public function render()

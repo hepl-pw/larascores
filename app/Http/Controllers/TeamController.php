@@ -50,6 +50,7 @@ class TeamController extends Controller
 
         DB::transaction(function () use ($request, $team, $validated) {
             if ($request->hasFile('logo')) {
+
                 $team->addMediaFromRequest('logo')
                     ->withResponsiveImages()
                     ->toMediaCollection();

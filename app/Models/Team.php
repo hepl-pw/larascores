@@ -7,6 +7,39 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * App\Models\Team
+ *
+ * @property int $id
+ * @property string $slug
+ * @property string $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $draws
+ * @property-read mixed $goals_against
+ * @property-read mixed $goals_difference
+ * @property-read mixed $goals_for
+ * @property-read mixed $losses
+ * @property-read int|null $matches_count
+ * @property-read mixed $points
+ * @property-read mixed $wins
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Match[] $matches
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
+ * @property-read int|null $media_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Participation[] $participations
+ * @property-read int|null $participations_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tournament[] $tournaments
+ * @property-read int|null $tournaments_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Team newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Team newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Team query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Team extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;

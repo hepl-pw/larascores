@@ -3,10 +3,10 @@
     <select class="form-control"
             name="competition"
             id="competition"
-            wire:model="competition_id"
-            wire:change="updateSeasonsSelect">
-        @foreach($competitions as $competition)
-            <option value="{{$competition->id}}">{{$competition->name}}</option>
+            wire:model="competitionId"
+    >
+        @foreach($competitions as $comp)
+            <option value="{{$comp->id}}" @if($comp->id===$competition->id) selected @endif>{{$comp->name}}</option>
         @endforeach
     </select>
 </div>

@@ -6,6 +6,36 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Match
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon $played_at
+ * @property string $slug
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $away_team_goals
+ * @property-read mixed $away_team_name
+ * @property-read mixed $competition
+ * @property-read mixed $home_team_goals
+ * @property-read mixed $home_team_name
+ * @property-read mixed $tournament
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Participation[] $participations
+ * @property-read int|null $participations_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Team[] $teams
+ * @property-read int|null $teams_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tournament[] $tournaments
+ * @property-read int|null $tournaments_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Match newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Match newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Match query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Match whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Match whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Match wherePlayedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Match whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Match whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Match extends Model
 {
     use HasFactory;

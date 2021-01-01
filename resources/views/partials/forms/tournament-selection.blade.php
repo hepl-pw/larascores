@@ -1,8 +1,8 @@
 <form class="row" action="{{route('dashboard')}}" method="get">
     @livewire('select-available-competitions-for-season', ['competitions'=>$competitions,
-    'competition_id'=>$competition_id])
+    'competition'=>$competition,'competitionId'=>$competition->id])
     @livewire('select-available-seasons-for-competition', ['span_years'=>$span_years, 'season'=>$season])
-    <div class="col">
+    <div class="col js">
         <label>Submit it</label>
         <button class="form-control">Change</button>
     </div>
